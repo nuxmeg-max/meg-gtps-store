@@ -9,7 +9,7 @@ const CONFIG = {
   store: {
     name: "LOCKSTORE",
     tagline: "Trusted GTPS Lock Dealer",
-    waNumber: "6281234567890",
+    waNumber: "6285188724658",
     waMessage: (lock, gtps, price) =>
       `mas beli ${lock} di ${gtps} dengan ${price}`,
   },
@@ -44,9 +44,9 @@ const CONFIG = {
 
   // ─── STATISTIK (4 KARTU) ───────────────────────────────────
   stats: [
-    { icon: "fa-solid fa-lock",       value: "500+",    label: "Lock Terjual"   },
-    { icon: "fa-solid fa-users",      value: "200+",    label: "Pelanggan Puas" },
-    { icon: "fa-solid fa-star",       value: "4.9/5",   label: "Rating Toko"    },
+    { icon: "fa-solid fa-lock",       value: "0",    label: "Lock Terjual"   },
+    { icon: "fa-solid fa-users",      value: "0",    label: "Pelanggan Puas" },
+    { icon: "fa-solid fa-star",       value: "0",   label: "Rating Toko"    },
     { icon: "fa-solid fa-bolt",       value: "< 5 Min", label: "Proses Cepat"   },
   ],
 
@@ -90,23 +90,16 @@ const CONFIG = {
   // ─── PRODUK LAIN ───────────────────────────────────────────
   otherProducts: [
     {
-      name: "Rupiah Items",
-      icon: "fa-solid fa-coins",
-      desc: "Jual beli item Growtopia dengan rupiah, harga terjangkau dan terpercaya.",
+      name: "Jasa Pembuatan Website Host Vercel",
+      icon: "fa-solid fa-code",
+      desc: "Jual Jasa pembuatan Website sesuai dengan apa yang customer mau [Host Vercel].",
       badge: "Hot",
-      link: "#",
-    },
-    {
-      name: "Account GTPS",
-      icon: "fa-solid fa-gamepad",
-      desc: "Jual akun GTPS berbagai server, aman dan bergaransi.",
-      badge: "New",
       link: "#",
     },
     {
       name: "World GTPS",
       icon: "fa-solid fa-earth-asia",
-      desc: "Berbagai world premium untuk memperindah dunia kamu.",
+      desc: "Berbagai Design/Name World.",
       badge: null,
       link: "#",
     },
