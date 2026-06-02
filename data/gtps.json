@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "GTFP",
+    "image": "assets/gtps/gtps1.jpg",
+    "ownerName": "Ridhoni",
+    "playerCount": "100+",
+    "description": "Server GTPS yang termasuk old dan masih jalan sampai sekarang [Meg sudah pensi disini].",
+    "locks": [
+      { "key": "wl",       "name": "World Lock",     "icon": "fa-solid fa-lock",           "price": 0,   "stock": 0,  "unit": "Rp" },
+      { "key": "dl",       "name": "Diamond Lock",   "icon": "fa-solid fa-gem",             "price": 0,  "stock": 0,  "unit": "Rp" },
+      { "key": "bgl",      "name": "Blue Gem Lock",  "icon": "fa-solid fa-diamond",         "price": 0,  "stock": 0,   "unit": "Rp" },
+      { "key": "ggl",    "name": "Golden Gem Lock",     "icon": "fa-solid fa-bolt",            "price": 0,  "stock": 0,  "unit": "Rp" }
+    ],
+    "priceHistory": {
+      "wl":     [4700, 4800, 4750, 4900, 5100, 4950, 5000],
+      "dl":     [14000, 14300, 14100, 14800, 15200, 14900, 15000],
+      "bgl":    [47000, 48000, 46500, 49000, 51000, 49500, 50000],
+      "ggl":  [82000, 83000, 81000, 84000, 86000, 84500, 85000]
+    }
+  },
+  {
+    "id": 2,
+    "name": "Nin PS",
+    "image": "assets/gtps/gtps2.jpg",
+    "ownerName": "Exsc",
+    "playerCount": "200+",
+    "description": "Server yang masih hangat untuk dimainkan.",
+    "locks": [
+      { "key": "wl",    "name": "World Lock",    "icon": "fa-solid fa-lock",           "price": 0,  "stock": 99+, "unit": "Rp" },
+      { "key": "dl",    "name": "Diamond Lock",  "icon": "fa-solid fa-gem",             "price": 0, "stock": 99+,  "unit": "Rp" },
+      { "key": "bgl",   "name": "Blue Gem Lock", "icon": "fa-solid fa-diamond",         "price": 5, "stock": 8,   "unit": "Rp" },
+      { "key": "hgl",  "name": "Heart Gem Lock",     "icon": "fa-solid fa-heart",       "price": 500, "stock": 0,  "unit": "Rp" }
+    ],
+    "priceHistory": {
+      "wl":   [0],
+      "dl":   [0],
+      "bgl":  [1, 2, 3, 4, 5],
+      "neon": [100, 200, 300, 400, 450, 500]
+    }
+  },
+  {
+    "id": 3,
+    "name": "MEG PS",
+    "image": "assets/gtps/gtps3.jpg",
+    "ownerName": "Meg",
+    "playerCount": "2.000+",
+    "description": "Hanya mimpi basah Meg.",
+    "locks": [
+      { "key": "wl",      "name": "World Lock",    "icon": "fa-solid fa-lock",           "price": 5500,   "stock": 200, "unit": "Rp" },
+      { "key": "dl",      "name": "Diamond Lock",  "icon": "fa-solid fa-gem",             "price": 16500,  "stock": 15,  "unit": "Rp" },
+      { "key": "bgl",     "name": "Blue Gem Lock", "icon": "fa-solid fa-diamond",         "price": 55000,  "stock": 3,   "unit": "Rp" },
+      { "key": "galaxy",  "name": "Galaxy Lock",   "icon": "fa-solid fa-star",            "price": 130000, "stock": 6,   "unit": "Rp" },
+      { "key": "shadow",  "name": "Shadow Lock",   "icon": "fa-solid fa-moon",            "price": 95000,  "stock": 10,  "unit": "Rp" },
+      { "key": "crystal", "name": "Crystal Lock",  "icon": "fa-solid fa-snowflake",       "price": 110000, "stock": 4,   "unit": "Rp" }
+    ],
+    "priceHistory": {
+      "wl":      [5100, 5200, 5050, 5300, 5500, 5350, 5500],
+      "dl":      [15500, 15800, 15600, 16200, 16500, 16300, 16500],
+      "bgl":     [52000, 53000, 51500, 54000, 55500, 54500, 55000],
+      "galaxy":  [124000, 126000, 122000, 128000, 132000, 129000, 130000],
+      "shadow":  [91000, 92000, 90000, 94000, 96000, 94000, 95000],
+      "crystal": [106000, 108000, 104000, 109000, 112000, 110000, 110000]
+    }
+  }
+]
