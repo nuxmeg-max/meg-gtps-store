@@ -12,7 +12,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
@@ -33,15 +33,26 @@
 <div id="cursor-ring"></div>
 <div id="cursor-dot"></div>
 
+<!-- ══ HAMBURGER (mobile) ════════════════════════════════════ -->
+<button id="hamburger" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- ══ SIDEBAR OVERLAY (mobile) ══════════════════════════════ -->
+<div id="sidebar-overlay"></div>
+
 <!-- ══ SIDEBAR ════════════════════════════════════════════════ -->
 <nav id="sidebar">
-  <div class="sb-logo">
-    <i class="fa-solid fa-lock"></i>
+  <div class="sb-top">
+    <div class="sb-logo">
+      <i class="fa-solid fa-lock"></i>
+    </div>
+    <button id="sb-close" aria-label="Tutup menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
   </div>
 
-  <div class="sb-nav" id="sb-nav">
-    <!-- Built by JS from CONFIG.nav -->
-  </div>
+  <div class="sb-nav" id="sb-nav"></div>
 
   <div class="sb-divider"></div>
 
@@ -91,9 +102,7 @@
 
   <!-- ── STATS ──────────────────────────────────────────────── -->
   <section id="stats">
-    <div class="stats-grid" id="stats-grid">
-      <!-- Built by JS from CONFIG.stats -->
-    </div>
+    <div class="stats-grid" id="stats-grid"></div>
   </section>
 
   <!-- ── GTPS ───────────────────────────────────────────────── -->
@@ -101,12 +110,7 @@
     <div class="sec-tag"><i class="fa-solid fa-server"></i> GTPS History</div>
     <h2 class="sec-title">Pilih GTPS</h2>
     <p class="sec-sub">Pilih server GTPS favoritmu dan lihat harga lock terkini beserta grafik pergerakannya.</p>
-
-    <div class="gtps-grid" id="gtps-grid">
-      <!-- Built by JS -->
-    </div>
-
-    <!-- Detail panel — shown on GTPS click -->
+    <div class="gtps-grid" id="gtps-grid"></div>
     <div id="gtps-detail" class="hidden"></div>
   </section>
 
@@ -115,10 +119,7 @@
     <div class="sec-tag"><i class="fa-solid fa-star"></i> Testimoni</div>
     <h2 class="sec-title">Apa Kata Pembeli</h2>
     <p class="sec-sub">Ratusan pembeli telah mempercayakan kebutuhan lock mereka kepada kami.</p>
-
-    <div class="testi-grid" id="testi-grid">
-      <!-- Built by JS -->
-    </div>
+    <div class="testi-grid" id="testi-grid"></div>
   </section>
 
   <!-- ── FAQ ────────────────────────────────────────────────── -->
@@ -126,10 +127,7 @@
     <div class="sec-tag"><i class="fa-solid fa-circle-question"></i> FAQ</div>
     <h2 class="sec-title">Pertanyaan Umum</h2>
     <p class="sec-sub">Jawaban atas pertanyaan yang paling sering ditanyakan.</p>
-
-    <div class="faq-wrap" id="faq-wrap">
-      <!-- Built by JS from CONFIG.faq -->
-    </div>
+    <div class="faq-wrap" id="faq-wrap"></div>
   </section>
 
   <!-- ── OTHER PRODUCTS ─────────────────────────────────────── -->
@@ -137,10 +135,7 @@
     <div class="sec-tag"><i class="fa-solid fa-box-open"></i> Produk Lain</div>
     <h2 class="sec-title">Produk Lainnya</h2>
     <p class="sec-sub">Tidak hanya lock — kami menyediakan berbagai produk GTPS lainnya.</p>
-
-    <div class="products-grid" id="products-grid">
-      <!-- Built by JS from CONFIG.otherProducts -->
-    </div>
+    <div class="products-grid" id="products-grid"></div>
   </section>
 
   <!-- ── FOOTER ─────────────────────────────────────────────── -->
@@ -149,11 +144,10 @@
     <span class="ft-copy">&copy; 2025 &middot; Trusted GTPS Lock Dealer</span>
   </footer>
 
-</div><!-- /#main -->
+</div>
 
 <!-- ══ MUSIC WIDGET ═══════════════════════════════════════════ -->
 <div id="music-widget">
-  <!-- Mini bar (always visible when not collapsed) -->
   <button class="mw-bar" id="mw-bar-btn" aria-label="Toggle music player">
     <img class="mw-thumb mw-cover-img"
          src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><rect width='36' height='36' fill='%231e1e1e'/></svg>"
@@ -164,15 +158,12 @@
     </div>
     <i class="fa-solid fa-chevron-up mw-chevron"></i>
   </button>
-
-  <!-- Expanded body -->
   <div class="mw-body">
     <img class="mw-cover mw-cover-img"
          src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><rect width='248' height='248' fill='%231e1e1e'/></svg>"
          alt="Album Cover">
     <div class="mw-song-title mw-title-txt">—</div>
     <div class="mw-song-artist mw-artist-txt">—</div>
-
     <div id="mw-prog-track" class="mw-prog-track">
       <div id="mw-prog-fill" class="mw-prog-fill"></div>
     </div>
@@ -180,51 +171,35 @@
       <span id="mw-time-cur">0:00</span>
       <span id="mw-time-tot">0:00</span>
     </div>
-
     <div class="mw-controls">
-      <button class="mw-ctrl" id="mw-prev" aria-label="Previous"><i class="fa-solid fa-backward-step"></i></button>
-      <button class="mw-play" id="mw-play" aria-label="Play/Pause"><i class="fa-solid fa-play"></i></button>
-      <button class="mw-ctrl" id="mw-next" aria-label="Next"><i class="fa-solid fa-forward-step"></i></button>
+      <button class="mw-ctrl" id="mw-prev"><i class="fa-solid fa-backward-step"></i></button>
+      <button class="mw-play" id="mw-play"><i class="fa-solid fa-play"></i></button>
+      <button class="mw-ctrl" id="mw-next"><i class="fa-solid fa-forward-step"></i></button>
     </div>
   </div>
-
   <audio id="music-audio" preload="metadata"></audio>
 </div>
 
 <!-- ══ BUY MODAL ══════════════════════════════════════════════ -->
 <div id="modal-bg">
-  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="md-lock-name">
-
+  <div id="modal" role="dialog" aria-modal="true">
     <div class="md-head">
-      <div class="md-lock-icon" id="md-lock-icon">
-        <i class="fa-solid fa-lock"></i>
-      </div>
-      <button class="md-close" id="md-close" aria-label="Tutup">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <div class="md-lock-icon" id="md-lock-icon"><i class="fa-solid fa-lock"></i></div>
+      <button class="md-close" id="md-close" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
     </div>
-
     <div class="md-body">
       <div class="md-lock-name" id="md-lock-name">Lock Name</div>
       <div class="md-gtps-name" id="md-gtps-name">GTPS Name</div>
-
       <div class="md-price-box">
         <div class="md-price-lbl">Harga</div>
         <div class="md-price-val" id="md-price-val">Rp 0</div>
       </div>
-
       <p class="md-note" id="md-note">Konfirmasi pembelian via WhatsApp?</p>
-
       <div class="md-actions">
-        <button class="btn-wa" id="md-wa-btn">
-          <i class="fa-brands fa-whatsapp"></i> Beli via WhatsApp
-        </button>
-        <button class="btn-testi-md" id="md-testi-btn">
-          <i class="fa-solid fa-star"></i> Testi
-        </button>
+        <button class="btn-wa" id="md-wa-btn"><i class="fa-brands fa-whatsapp"></i> Beli via WhatsApp</button>
+        <button class="btn-testi-md" id="md-testi-btn"><i class="fa-solid fa-star"></i> Testi</button>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -233,4 +208,5 @@
 <script src="js/main.js"></script>
 
 </body>
-</html>
+      </html>
+      
