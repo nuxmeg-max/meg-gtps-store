@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('[LockStore] Data load error:', err);
   }
 
-  // Dismiss loading screen
   setTimeout(() => {
     const ld = document.getElementById('loading');
     ld.classList.add('out');
@@ -80,21 +79,44 @@ function initCursor() {
 
 // ─── SIDEBAR ─────────────────────────────────────────────────
 function buildSidebar() {
-  const nav  = document.getElementById('sb-nav');
-  const waEl = document.getElementById('sb-wa');
+  const nav     = document.getElementById('sb-nav');
+  const waEl    = document.getElementById('sb-wa');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sb-overlay');
+  const burger  = document.getElementById('hamburger');
+  const sbClose = document.getElementById('sb-close');
 
   CONFIG.nav.forEach(item => {
     const a = document.createElement('a');
     a.href = item.href;
     a.className = 'sb-link';
     a.dataset.label = item.label;
-    a.innerHTML = `<i class="${item.icon}"></i>`;
+    a.innerHTML = `<i class="${item.icon}"></i><span class="sb-lbl">${item.label}</span>`;
+    a.addEventListener('click', closeSidebar);
     nav.appendChild(a);
   });
 
   if (waEl) waEl.href = `https://wa.me/${CONFIG.store.waNumber}`;
 
-  // Active link on scroll
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+    burger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  burger?.addEventListener('click', () =>
+    sidebar.classList.contains('open') ? closeSidebar() : openSidebar()
+  );
+  sbClose?.addEventListener('click', closeSidebar);
+  overlay?.addEventListener('click', closeSidebar);
+
   const sections = document.querySelectorAll('section[id]');
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -111,10 +133,9 @@ function buildSidebar() {
 function initBanner() {
   const vid = document.getElementById('banner-video');
   if (vid) {
-    vid.src    = CONFIG.banner.videoPath;
-    vid.poster = CONFIG.banner.videoPoster;
-    vid.muted  = true;
-    vid.loop   = true;
+    vid.src = CONFIG.banner.videoPath;
+    vid.muted = true;
+    vid.loop = true;
     vid.autoplay = true;
     vid.playsInline = true;
     vid.play().catch(() => {});
@@ -163,7 +184,6 @@ function buildGTPS() {
         <div class="gc-prices">${chips}</div>
       </div>`;
 
-    // Load image
     loadImg(
       `${CONFIG.paths.assets}gtps/gtps${g.id}.jpg`,
       card.querySelector('.gc-img-wrap'),
@@ -195,7 +215,7 @@ function selectGtps(id) {
           <span><i class="fa-solid fa-user"></i> ${g.ownerName}</span>
           <span><i class="fa-solid fa-users"></i> ${g.playerCount} Players</span>
         </p>
-        <p style="margin-top:4px;font-size:11px;color:var(--text-dim)">${g.description}</p>
+        <p style="margin-top:4px;font-size:11px;color:var(--dim)">${g.description}</p>
       </div>
     </div>
     <div class="gd-body">
@@ -213,11 +233,11 @@ function buildLockGrid(g) {
   const grid = document.getElementById('lock-grid');
 
   g.locks.forEach(lock => {
-    const hist   = g.priceHistory[lock.key];
-    const delta  = hist[hist.length - 1] - hist[0];
-    const pct    = ((Math.abs(delta) / hist[0]) * 100).toFixed(1);
-    const isUp   = delta >= 0;
-    const spark  = sparklineSVG(hist, 200, 38, isUp ? 'up' : 'down');
+    const hist  = g.priceHistory[lock.key];
+    const delta = hist[hist.length - 1] - hist[0];
+    const pct   = ((Math.abs(delta) / hist[0]) * 100).toFixed(1);
+    const isUp  = delta >= 0;
+    const spark = sparklineSVG(hist, 200, 38, isUp ? 'up' : 'down');
 
     const card = document.createElement('div');
     card.className = 'lock-card';
@@ -283,8 +303,8 @@ function sparklineSVG(data, w, h, cls = '') {
   return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
     <defs>
       <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="${areaColor.replace('0.', '0.').split(')')[0].replace('rgba', 'rgb').replace(/,[\d.]+$/, '')}" stop-opacity="${parseFloat(areaColor.match(/[\d.]+\)/)[0])}"/>
-        <stop offset="100%" stop-color="rgba(0,0,0,0)" stop-opacity="0"/>
+        <stop offset="0%" stop-color="${areaColor}"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
       </linearGradient>
     </defs>
     <path d="${areaPath}" fill="url(#${gid})"/>
@@ -393,13 +413,11 @@ function initMusicWidget() {
     if (isPlaying) audioEl.play().catch(() => {});
   }
 
-  // Toggle expand/collapse
   document.getElementById('mw-bar-btn').addEventListener('click', () => {
     widgetOpen = !widgetOpen;
     widget.classList.toggle('open', widgetOpen);
   });
 
-  // Play / Pause
   document.getElementById('mw-play').addEventListener('click', () => {
     isPlaying = !isPlaying;
     if (isPlaying) { audioEl.play().catch(() => { isPlaying = false; syncPlayBtn(); }); }
@@ -413,7 +431,6 @@ function initMusicWidget() {
       : '<i class="fa-solid fa-play"></i>';
   }
 
-  // Prev / Next
   document.getElementById('mw-prev').addEventListener('click', () => {
     trackIdx = (trackIdx - 1 + pl.length) % pl.length;
     loadTrack(trackIdx);
@@ -423,7 +440,6 @@ function initMusicWidget() {
     loadTrack(trackIdx);
   });
 
-  // Progress
   audioEl.addEventListener('timeupdate', () => {
     if (!audioEl.duration) return;
     const pct = (audioEl.currentTime / audioEl.duration) * 100;
@@ -499,7 +515,6 @@ function loadImg(src, container, placeholderId, thumb = false) {
       container.appendChild(img);
     }
   };
-  // On error: placeholder stays
 }
 
 // ─── HELPERS ─────────────────────────────────────────────────
@@ -513,10 +528,6 @@ function fmtTime(sec) {
 }
 
 function shortLockName(name) {
-  const map = {
-    'World Lock': 'WL', 'Diamond Lock': 'DL',
-    'Blue Gem Lock': 'BGL',
-  };
+  const map = { 'World Lock': 'WL', 'Diamond Lock': 'DL', 'Blue Gem Lock': 'BGL' };
   return map[name] || name.replace(' Lock', '');
-    }
-             
+                   }
