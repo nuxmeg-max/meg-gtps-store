@@ -4,154 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GTPS Lock Store</title>
-  <meta name="description" content="Jual beli lock GTPS terpercaya — World Lock, Diamond Lock, Blue Gem Lock, Custom Lock. Fast, murah, aman.">
-  <meta property="og:title"       content="GTPS Lock Store">
-  <meta property="og:description" content="Trusted GTPS Lock Dealer — WL, DL, BGL, Custom Lock">
-  <meta property="og:type"        content="website">
-
-  <!-- Fonts -->
+  <meta name="description" content="Jual beli lock GTPS terpercaya — World Lock, Diamond Lock, Blue Gem Lock, Custom Lock.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ══ LOADING ════════════════════════════════════════════════ -->
+<!-- LOADING -->
 <div id="loading">
   <div class="ld-logo">LOCKSTORE</div>
   <div class="ld-label">Memuat...</div>
   <div class="ld-bar"></div>
 </div>
 
-<!-- ══ CURSOR ═════════════════════════════════════════════════ -->
+<!-- CURSOR -->
 <div id="cursor-ring"></div>
 <div id="cursor-dot"></div>
 
-<!-- ══ HAMBURGER (mobile) ════════════════════════════════════ -->
+<!-- HAMBURGER — mobile only -->
 <button id="hamburger" aria-label="Menu">
   <span></span><span></span><span></span>
 </button>
 
-<!-- ══ SIDEBAR OVERLAY (mobile) ══════════════════════════════ -->
-<div id="sidebar-overlay"></div>
+<!-- OVERLAY -->
+<div id="sb-overlay"></div>
 
-<!-- ══ SIDEBAR ════════════════════════════════════════════════ -->
+<!-- SIDEBAR -->
 <nav id="sidebar">
-  <div class="sb-top">
-    <div class="sb-logo">
-      <i class="fa-solid fa-lock"></i>
-    </div>
-    <button id="sb-close" aria-label="Tutup menu">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
+  <div class="sb-head">
+    <div class="sb-logo"><i class="fa-solid fa-lock"></i></div>
+    <button id="sb-close"><i class="fa-solid fa-xmark"></i></button>
   </div>
-
-  <div class="sb-nav" id="sb-nav"></div>
-
-  <div class="sb-divider"></div>
-
-  <a id="sb-wa" href="#" target="_blank" class="sb-wa" rel="noopener">
+  <div id="sb-nav" class="sb-nav"></div>
+  <div class="sb-sep"></div>
+  <a id="sb-wa" href="#" target="_blank" rel="noopener" class="sb-wa" data-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
+    <span class="sb-lbl">WhatsApp</span>
   </a>
 </nav>
 
-<!-- ══ MAIN ═══════════════════════════════════════════════════ -->
+<!-- MAIN -->
 <div id="main">
 
-  <!-- ── BANNER ─────────────────────────────────────────────── -->
+  <!-- BANNER -->
   <section id="banner">
     <video id="banner-video" muted loop autoplay playsinline></video>
-    <div id="banner-overlay"></div>
-
-    <div id="banner-content">
-      <div class="bn-eyebrow">GTPS Lock Store</div>
-
-      <h1 class="bn-title">
-        LOCK<br>STORE
-        <em>Terpercaya &middot; Cepat &middot; Murah</em>
-      </h1>
-
+    <div class="bn-overlay"></div>
+    <div class="bn-scanlines"></div>
+    <div class="bn-content">
+      <p class="bn-eyebrow"><span></span> GTPS Lock Store</p>
+      <h1 class="bn-title">LOCK<br>STORE</h1>
+      <p class="bn-sub">Terpercaya &middot; Cepat &middot; Murah</p>
       <div class="bn-badges">
-        <span class="bn-badge"><i class="fa-solid fa-lock"></i> World Lock</span>
-        <span class="bn-badge"><i class="fa-solid fa-gem"></i> Diamond Lock</span>
-        <span class="bn-badge"><i class="fa-solid fa-diamond"></i> Blue Gem Lock</span>
-        <span class="bn-badge"><i class="fa-solid fa-key"></i> Custom Lock</span>
+        <span><i class="fa-solid fa-lock"></i> World Lock</span>
+        <span><i class="fa-solid fa-gem"></i> Diamond Lock</span>
+        <span><i class="fa-solid fa-diamond"></i> Blue Gem Lock</span>
+        <span><i class="fa-solid fa-key"></i> Custom Lock</span>
       </div>
-
       <div class="bn-cta">
-        <a href="#gtps" class="btn-primary">
-          <i class="fa-solid fa-store"></i> Lihat Produk
-        </a>
-        <a href="#testimonials" class="btn-ghost">
-          <i class="fa-solid fa-star"></i> Testimoni
-        </a>
+        <a href="#gtps" class="btn-primary"><i class="fa-solid fa-store"></i> Lihat Produk</a>
+        <a href="#testimonials" class="btn-ghost"><i class="fa-solid fa-star"></i> Testimoni</a>
       </div>
     </div>
-
-    <div class="bn-scroll">
-      <div class="bn-scroll-line"></div>
-      Scroll
-    </div>
+    <p class="bn-scroll"><span></span> SCROLL</p>
   </section>
 
-  <!-- ── STATS ──────────────────────────────────────────────── -->
+  <!-- STATS -->
   <section id="stats">
-    <div class="stats-grid" id="stats-grid"></div>
+    <div id="stats-grid" class="stats-grid"></div>
   </section>
 
-  <!-- ── GTPS ───────────────────────────────────────────────── -->
+  <!-- GTPS -->
   <section id="gtps">
-    <div class="sec-tag"><i class="fa-solid fa-server"></i> GTPS History</div>
+    <p class="sec-tag"><i class="fa-solid fa-server"></i> GTPS History</p>
     <h2 class="sec-title">Pilih GTPS</h2>
-    <p class="sec-sub">Pilih server GTPS favoritmu dan lihat harga lock terkini beserta grafik pergerakannya.</p>
-    <div class="gtps-grid" id="gtps-grid"></div>
+    <p class="sec-sub">Pilih server GTPS favoritmu dan lihat harga lock terkini.</p>
+    <div id="gtps-grid" class="gtps-grid"></div>
     <div id="gtps-detail" class="hidden"></div>
   </section>
 
-  <!-- ── TESTIMONIALS ───────────────────────────────────────── -->
+  <!-- TESTIMONIALS -->
   <section id="testimonials">
-    <div class="sec-tag"><i class="fa-solid fa-star"></i> Testimoni</div>
+    <p class="sec-tag"><i class="fa-solid fa-star"></i> Testimoni</p>
     <h2 class="sec-title">Apa Kata Pembeli</h2>
     <p class="sec-sub">Ratusan pembeli telah mempercayakan kebutuhan lock mereka kepada kami.</p>
-    <div class="testi-grid" id="testi-grid"></div>
+    <div id="testi-grid" class="testi-grid"></div>
   </section>
 
-  <!-- ── FAQ ────────────────────────────────────────────────── -->
+  <!-- FAQ -->
   <section id="faq">
-    <div class="sec-tag"><i class="fa-solid fa-circle-question"></i> FAQ</div>
+    <p class="sec-tag"><i class="fa-solid fa-circle-question"></i> FAQ</p>
     <h2 class="sec-title">Pertanyaan Umum</h2>
     <p class="sec-sub">Jawaban atas pertanyaan yang paling sering ditanyakan.</p>
-    <div class="faq-wrap" id="faq-wrap"></div>
+    <div id="faq-wrap" class="faq-wrap"></div>
   </section>
 
-  <!-- ── OTHER PRODUCTS ─────────────────────────────────────── -->
+  <!-- OTHER PRODUCTS -->
   <section id="other-products">
-    <div class="sec-tag"><i class="fa-solid fa-box-open"></i> Produk Lain</div>
+    <p class="sec-tag"><i class="fa-solid fa-box-open"></i> Produk Lain</p>
     <h2 class="sec-title">Produk Lainnya</h2>
     <p class="sec-sub">Tidak hanya lock — kami menyediakan berbagai produk GTPS lainnya.</p>
-    <div class="products-grid" id="products-grid"></div>
+    <div id="products-grid" class="products-grid"></div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <!-- FOOTER -->
   <footer id="footer">
-    <span class="ft-brand" id="ft-brand">LOCKSTORE</span>
+    <span id="ft-brand" class="ft-brand">LOCKSTORE</span>
     <span class="ft-copy">&copy; 2025 &middot; Trusted GTPS Lock Dealer</span>
   </footer>
 
 </div>
 
-<!-- ══ MUSIC WIDGET ═══════════════════════════════════════════ -->
+<!-- MUSIC WIDGET -->
 <div id="music-widget">
-  <button class="mw-bar" id="mw-bar-btn" aria-label="Toggle music player">
-    <img class="mw-thumb mw-cover-img"
-         src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><rect width='36' height='36' fill='%231e1e1e'/></svg>"
-         alt="Cover">
+  <button id="mw-bar-btn" class="mw-bar">
+    <img class="mw-thumb mw-cover-img" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><rect width='32' height='32' fill='%231c1c1c'/></svg>" alt="">
     <div class="mw-info">
       <div class="mw-title mw-title-txt">Memuat...</div>
       <div class="mw-artist mw-artist-txt">—</div>
@@ -159,18 +129,11 @@
     <i class="fa-solid fa-chevron-up mw-chevron"></i>
   </button>
   <div class="mw-body">
-    <img class="mw-cover mw-cover-img"
-         src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><rect width='248' height='248' fill='%231e1e1e'/></svg>"
-         alt="Album Cover">
+    <img class="mw-cover mw-cover-img" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><rect width='236' height='236' fill='%231c1c1c'/></svg>" alt="">
     <div class="mw-song-title mw-title-txt">—</div>
     <div class="mw-song-artist mw-artist-txt">—</div>
-    <div id="mw-prog-track" class="mw-prog-track">
-      <div id="mw-prog-fill" class="mw-prog-fill"></div>
-    </div>
-    <div class="mw-prog-time">
-      <span id="mw-time-cur">0:00</span>
-      <span id="mw-time-tot">0:00</span>
-    </div>
+    <div id="mw-prog-track" class="mw-prog-track"><div id="mw-prog-fill" class="mw-prog-fill"></div></div>
+    <div class="mw-prog-time"><span id="mw-time-cur">0:00</span><span id="mw-time-tot">0:00</span></div>
     <div class="mw-controls">
       <button class="mw-ctrl" id="mw-prev"><i class="fa-solid fa-backward-step"></i></button>
       <button class="mw-play" id="mw-play"><i class="fa-solid fa-play"></i></button>
@@ -180,33 +143,30 @@
   <audio id="music-audio" preload="metadata"></audio>
 </div>
 
-<!-- ══ BUY MODAL ══════════════════════════════════════════════ -->
+<!-- MODAL -->
 <div id="modal-bg">
-  <div id="modal" role="dialog" aria-modal="true">
+  <div id="modal">
     <div class="md-head">
       <div class="md-lock-icon" id="md-lock-icon"><i class="fa-solid fa-lock"></i></div>
-      <button class="md-close" id="md-close" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+      <button class="md-close" id="md-close"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="md-body">
-      <div class="md-lock-name" id="md-lock-name">Lock Name</div>
-      <div class="md-gtps-name" id="md-gtps-name">GTPS Name</div>
+      <div class="md-lock-name" id="md-lock-name">—</div>
+      <div class="md-gtps-name" id="md-gtps-name">—</div>
       <div class="md-price-box">
-        <div class="md-price-lbl">Harga</div>
-        <div class="md-price-val" id="md-price-val">Rp 0</div>
+        <span class="md-price-lbl">Harga</span>
+        <span class="md-price-val" id="md-price-val">Rp 0</span>
       </div>
-      <p class="md-note" id="md-note">Konfirmasi pembelian via WhatsApp?</p>
+      <p class="md-note" id="md-note"></p>
       <div class="md-actions">
         <button class="btn-wa" id="md-wa-btn"><i class="fa-brands fa-whatsapp"></i> Beli via WhatsApp</button>
-        <button class="btn-testi-md" id="md-testi-btn"><i class="fa-solid fa-star"></i> Testi</button>
+        <button class="btn-testi-md" id="md-testi-btn"><i class="fa-solid fa-star"></i></button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══ SCRIPTS ════════════════════════════════════════════════ -->
 <script src="config.js"></script>
 <script src="js/main.js"></script>
-
 </body>
       </html>
-      
